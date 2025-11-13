@@ -26,10 +26,10 @@ jobs:
 
       # If you ever add a build step, put it here.
       # For a pure static site we just upload the "public" folder.
-      - name: Upload artifact
+      - name: Upload artifact (repo root)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: public
+          path: .
 
       - name: Deploy to GitHub Pages
         id: deployment
