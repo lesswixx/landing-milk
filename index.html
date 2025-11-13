@@ -9,13 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public/styles.css" />
-    <link rel="icon" href="public/images/icons/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="public/images/favicon.ico">
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="#home" class="logo">
-          <span class="logo-mark" aria-hidden="true">🥛</span>
+        <a href="#home" class="logo" style="gap:10px">
+          <img src="public/images/logo.JPG" alt="Логотип Племхоз им. Тельмана" style="height:40px;width:auto;border-radius:6px;object-fit:cover" />
           <span class="logo-text">АГРОХОЛДИНГ 78<br/>ПЛЕМХОЗ им. ТЕЛЬМАНА</span>
         </a>
         <nav class="main-nav">
@@ -47,9 +50,6 @@
               <a href="#contact" class="btn btn-primary btn-lg">Заказать пробную партию молока</a>
               <a href="#cheesemaker" class="btn btn-soft">Для сыровара</a>
             </div>
-          </div>
-          <div class="hero-media">
-            <img src="public/images/hero/hero-milk.png" alt="Свежие молочные сливки и сыр" onerror="this.parentElement.style.display='none'" />
           </div>
         </div>
       </section>
@@ -89,9 +89,9 @@
           <div>
             <h2 class="section-title">О нас</h2>
             <p>
-              АО «Племхоз имени Тельмана» — крупный сельскохозяйственный производитель. В стаде более
-              <strong>3500 голов</strong> племенного КРС, объём производства молока
-              <strong>более 18 000 тонн в год</strong>.
+              АО «Племхоз имени Тельмана» — крупный сельскохозяйственный производитель.<br/> В стаде более
+              <strong>3&nbsp;500&nbsp;голов</strong> племенного КРС, объём производства молока
+              <strong>более&nbsp;18&nbsp;000&nbsp;тонн&nbsp;в&nbsp;год</strong>.
             </p>
             <p>
               Доильный цех оснащён современным комплексом «Карусель» производства Германии.
@@ -114,23 +114,20 @@
       <!-- CHEESEMAKER / GENETICS -->
       <section id="cheesemaker" class="section-cheesemaker gradient-bg soft">
         <div class="container">
-          <h2 class="section-title">Для сыровара: стабильность благодаря генетике</h2>
+          <h2 class="section-title">Для сыровара: молоко, чьи<br/>свойства заложены генетикой</h2>
           <div class="cheese-grid">
             <div class="cheese-text">
-              <p>
-                Идеальный сыр начинается с правильного молока: <strong>качественный казеин</strong> задаёт структуру, вкус и выход продукта.
-              </p>
-              <p>Мы добиваемся предсказуемости благодаря селекции стада и постоянному контролю состава молока.</p>
+              <p>Для сыровара качество сыра определяется качеством белка.<br/>Казеин формирует структуру сырной массы, отвечает за вкус, текстуру и выход продукта.</p>
+              <p>Ключ к стабильному высокому результату — молоко с доминирующим генотипом бета‑казеина <strong>BB</strong>,<br/>который обеспечивает лучшее свёртывание и нежнейшую текстуру.</p>
 
               <div class="pill-stats">
                 <div class="pill">До 40% — генотип BB</div>
                 <div class="pill">До 50% — генотип AB</div>
-                <div class="pill">3,4% белок · 4,0% жир</div>
               </div>
 
               <div class="feature-cards">
                 <article class="feature-card reveal">
-                  <h4>Почему выбирают</h4>
+                  <h4>Почему выбирают нас</h4>
                   <p>Селекция стада под коагуляцию казеина и стабильную текстуру.</p>
                   <ul class="check small">
                     <li>Селекция под технологичность сырья.</li>
@@ -156,19 +153,13 @@
               </div>
 
               <div class="presentation">
-                <a class="btn btn-outline" href="public/docs/presentation.pdf" target="_blank" rel="noopener">
+                <a class="btn btn-outline btn-lg" href="public/docs/presentation.pdf" target="_blank" rel="noopener">
                   Загрузите подробную презентацию
                 </a>
-                <small>с данными генетических и биохимических исследований</small>
-              </div>
-              <div class="inline-cta">
-                <span class="inline-cta-text">Готовы протестировать сыропригодность?</span>
-                <a href="#contact" class="btn btn-primary">Заказать пробную партию</a>
+                <small>с данными генетических и биохимических исследований,<br/>чтобы убедиться в преимуществах нашего молока</small>
               </div>
             </div>
-            <div class="cheese-photo">
-              <img src="public/images/products/milkAndChees.png" alt="Стакан молока и кусок сыра" />
-            </div>
+
           </div>
         </div>
       </section>
@@ -177,13 +168,20 @@
       <section id="gallery" class="section-gallery">
         <div class="container">
           <h2 class="section-title">Фото с нашей фермы</h2>
-          <div class="gallery-grid">
-            <img src="public/images/gallery/cow-and-farmer.jpg" alt="Коровы и сотрудник фермы" class="reveal" />
-            <img src="public/images/gallery/calf-housing.jpg" alt="Молодняк в индивидуальных домиках" class="reveal" />
-            <img src="public/images/gallery/cows-feeding.jpg" alt="Кормление стада" class="reveal" />
-            <img src="public/images/gallery/milking-parlor.jpg" alt="Доильный зал" class="reveal" />
-            <img src="public/images/gallery/plant-outside.jpg" alt="Молочный комплекс" class="reveal" />
-            <img src="public/images/gallery/tanks.jpg" alt="Емкости для охлаждения и хранения" class="reveal" />
+          <div class="carousel">
+            <button class="carousel-arrow prev" data-target="#gallery-track" aria-label="Назад">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="gallery-track" class="carousel-track">
+              <div class="carousel-item"><img src="public/images/milk-and-cow.png" alt="Коровы на ферме" /></div>
+              <div class="carousel-item"><img src="public/images/botle-milk-and-chees.png" alt="Бутылка молока и сыр" /></div>
+              <div class="carousel-item"><img src="public/images/stack-chees.png" alt="Головы сыра" /></div>
+              <div class="carousel-item"><img src="public/images/milk-and-cow.png" alt="Ферма" /></div>
+              <div class="carousel-item"><img src="public/images/botle-milk-and-chees.png" alt="Продукция" /></div>
+            </div>
+            <button class="carousel-arrow next" data-target="#gallery-track" aria-label="Вперед">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
           </div>
         </div>
       </section>
@@ -217,6 +215,17 @@
         </div>
       </section>
 
+      <!-- TRIAL -->
+      <section class="section-trial gradient-bg soft">
+        <div class="container trial-grid">
+          <div class="trial-text">
+            <h2 class="section-title">Закажите пробную партию молока от 50 литров</h2>
+            <p>Убедитесь лично в качестве нашей продукции. Организуем быструю отгрузку и стабильный состав.</p>
+            <a href="#contact" class="btn btn-primary btn-lg">Заказать</a>
+          </div>
+        </div>
+      </section>
+
       <!-- TERMS -->
       <section class="section-terms">
         <div class="container">
@@ -227,6 +236,40 @@
             <li><strong>Оплата:</strong> безнал или наличными в кассу</li>
             <li><strong>Поставка:</strong> самовывоз или доставка</li>
             <li><strong>Отгрузка:</strong> ежедневно с 06:00 до 13:00</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CERTIFICATES -->
+      <section class="section-gallery" id="certificates">
+        <div class="container">
+          <h2 class="section-title">Сертификаты</h2>
+          <div class="carousel">
+            <button class="carousel-arrow prev" data-target="#certs-track" aria-label="Назад">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+            <div id="certs-track" class="carousel-track">
+              <div class="carousel-item"><img src="public/images/stack-chees.png" alt="Сертификат качества" /></div>
+              <div class="carousel-item"><img src="public/images/botle-milk-and-chees.png" alt="Сертификат безопасности" /></div>
+              <div class="carousel-item"><img src="public/images/milk-and-cow.png" alt="Сертификат соответствия" /></div>
+            </div>
+            <button class="carousel-arrow next" data-target="#certs-track" aria-label="Вперед">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PARTNERS -->
+      <section class="section-terms" id="partners">
+        <div class="container">
+          <h2 class="section-title">С нами работают</h2>
+          <ul class="terms-list">
+            <li>Крупные перерабатывающие заводы</li>
+            <li>Рестораны и онлайн‑доставки</li>
+            <li>Сыроварни и маслодельные заводы</li>
+            <li>Малый и средний бизнес</li>
+            <li>Частные лица</li>
           </ul>
         </div>
       </section>
@@ -262,7 +305,7 @@
             </form>
           </div>
           <div class="contact-map">
-            <iframe title="Карта — Племхоз им. Тельмана" src="https://yandex.ru/map-widget/v1/?um=constructor%3A8fc39592c8d6e3e0a5968f8a1d4f1e8b63c2857bb8b3b7e3a26c1b5f6d2a3178&amp;source=constructor" frameborder="0"></iframe>
+            <iframe title="Карта — Племхоз им. Тельмана" src="https://yandex.ru/map-widget/v1/?ll=30.982%2C59.746&z=10&pt=30.982,59.746,pm2dgl" frameborder="0"></iframe>
           </div>
         </div>
       </section>
@@ -286,6 +329,19 @@
     <button id="toTop" class="to-top" aria-label="Наверх">▲</button>
 
     <script src="public/script.js"></script>
+    <script>
+      function bindCarousel(button){
+        const targetSel = button.getAttribute('data-target');
+        const track = document.querySelector(targetSel);
+        if(!track) return;
+        const dir = button.classList.contains('next') ? 1 : -1;
+        button.addEventListener('click', () => {
+          const itemWidth = track.firstElementChild?.getBoundingClientRect().width || track.clientWidth;
+          track.scrollBy({ left: dir * (itemWidth + 16), behavior: 'smooth' });
+        });
+      }
+      document.querySelectorAll('.carousel-arrow').forEach(bindCarousel);
+    </script>
   </body>
   </html>
 

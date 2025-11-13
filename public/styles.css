@@ -65,10 +65,11 @@ body {
 }
 .main-nav a:hover { color: var(--blue-3); }
 .main-nav .nav-cta {
-  padding: 10px 14px;
-  background: var(--blue-2);
+  padding: 10px 16px;
+  background: var(--green);
   color: #fff;
   border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(91,182,58,.25);
 }
 
 .header-phones { display: grid; gap: 4px; text-align: right; }
@@ -91,6 +92,7 @@ body {
   gap: min(6vw, 60px);
   align-items: center;
 }
+.hero-text { text-align: left; }
 .hero-text .display {
   margin: 0 0 18px;
   font-family: Montserrat, Inter, Arial, sans-serif;
@@ -98,15 +100,28 @@ body {
   font-size: clamp(32px, 4.5vw, 52px);
   line-height: 1.1;
 }
-.lead { font-size: 18px; opacity: .95; }
-.hero-ctas { display: flex; gap: 16px; margin-top: 22px; flex-wrap: wrap; }
-.hero-media img { width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow); }
+.lead { font-size: 18px; opacity: .95; margin: 0; max-width: 680px; }
+.hero-ctas { display: flex; gap: 16px; margin-top: 22px; flex-wrap: wrap; justify-content: flex-start; }
+.hero-media {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+}
 .section-hero.gradient-bg {
   /* milk splash on top of gradient */
-  background-image: url("images/textures/milk-splash.png"), linear-gradient(105deg, var(--blue-1), var(--blue-2));
+  background-image: url("images/botle-milk-and-chees.png"), linear-gradient(105deg, var(--blue-1), var(--blue-2));
   background-repeat: no-repeat, no-repeat;
-  background-position: right 16px bottom 16px, 0 0;
-  background-size: clamp(460px, 40vw, 820px), auto;
+  background-position: right center, 0 0; /* прилегает к правому краю */
+  background-size: auto 100%, auto;      /* по высоте секции */
 }
 
 /* Buttons */
@@ -130,8 +145,11 @@ body {
 .btn-primary:hover { background: var(--green-2); }
 .btn-soft { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.3); }
 .btn-soft:hover { background: rgba(255,255,255,.25); }
-.btn-outline { background: #fff; color: var(--blue-3); border: 2px solid var(--blue-3); }
-.btn-outline:hover { background: var(--blue-3); color: #fff; }
+.btn-outline { background: #356BAA; color: #fff; border: 0; }
+/* небольшое затемнение при ховере */
+.btn-outline:hover { background: #2f5f98; color: #fff; }
+/* кнопка презентации на всю ширину блока */
+.presentation .btn { width: 100%; }
 
 /* Sections */
 .section-title {
@@ -259,27 +277,72 @@ body {
 }
 .feature-card details[open] summary::after { transform: rotate(180deg) translateY(1px); }
 
+/* Cheesemaker section background (stack-chees), anchored to right, full section height */
+.section-cheesemaker.gradient-bg.soft {
+  background-image: url("images/stack-chees.png"), linear-gradient(105deg, #8dbbe6, #6aa0d6);
+  background-repeat: no-repeat, no-repeat;
+  background-position: right center, 0 0;
+  background-size: auto 100%, auto;
+}
+
+/* (reverted) keep container centered – do not exceed viewport width */
+
 .section-trial { padding: 36px 0; color: #fff; }
 .trial-grid {
   display: grid;
-  grid-template-columns: .9fr 1.1fr;
-  gap: 36px;
-  align-items: center;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 20px; /* отступ между картинкой и текстом */
+  align-items: center; /* выравнивание текста по центру по высоте */
 }
 .trial-photo { width: 100%; height: auto; border-radius: 20px; box-shadow: var(--shadow); }
+.trial-text { grid-column: 2; }
 .trial-text p { font-size: 18px; opacity: .95; margin-top: 0; }
-
-.section-gallery { padding: 44px 0; background: var(--bg); }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+.section-trial.gradient-bg.soft {
+  background-image: url("images/milk-and-cow.png"), linear-gradient(105deg, #8dbbe6, #6aa0d6);
+  background-repeat: no-repeat, no-repeat;
+  /* сдвигаем изображение вправо на 20px */
+  background-position: left 200px center, 0 0;
+  background-size: auto 100%, auto;
 }
-.gallery-grid img {
+.section-gallery { padding: 44px 0; background: var(--bg); }
+/* Carousel */
+.carousel {
+  position: relative;
+}
+.carousel-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 32px) / 3);
+  gap: 16px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+.carousel-item {
+  scroll-snap-align: start;
+}
+.carousel-item img {
   width: 100%; height: 100%; object-fit: cover;
   border-radius: 16px; box-shadow: var(--shadow);
   aspect-ratio: 4/3;
 }
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px; height: 44px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 0;
+  box-shadow: var(--shadow);
+  color: var(--blue-3);
+  cursor: pointer;
+  display: grid; place-items: center;
+}
+.carousel-arrow:hover { transform: translateY(-50%) scale(1.05); }
+.carousel-arrow.prev { left: -24px; }
+.carousel-arrow.next { right: -24px; }
+.carousel-arrow svg { width: 22px; height: 22px; }
 
 .section-process { padding: 44px 0 24px; background: #fff; }
 .process-grid {
@@ -380,16 +443,23 @@ input:focus, textarea:focus { border-color: var(--blue-3); box-shadow: 0 0 0 4px
   .benefits-grid { grid-template-columns: repeat(2, 1fr); }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .feature-cards { grid-template-columns: repeat(2, 1fr); }
-  .section-hero.gradient-bg { background-size: clamp(380px, 42vw, 600px), auto; background-position: right 12px bottom 12px, 0 0; }
+  .trial-text { grid-column: 1; }
+  .section-hero.gradient-bg { background-size: auto 100%, auto; background-position: right center, 0 0; }
+  .section-cheesemaker.gradient-bg.soft { background-size: auto 100%, auto; background-position: right center, 0 0; }
+  .carousel-track { grid-auto-columns: calc((100% - 16px) / 2); }
 }
 @media (max-width: 720px) {
   .main-nav { display: none; }
-  .benefits-grid, .gallery-grid { grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr; }
   .feature-cards { grid-template-columns: 1fr; }
   .header-inner { grid-template-columns: auto 1fr; }
   .header-phones { display: none; }
-  .section-hero.gradient-bg { background-size: 300px, auto; background-position: right 8px bottom 8px, 0 0; }
+  .section-hero.gradient-bg { background-size: auto 100%, auto; background-position: right center, 0 0; }
+  .section-cheesemaker.gradient-bg.soft { background-size: auto 85%, auto; background-position: right center, 0 0; }
+  .carousel-track { grid-auto-columns: 100%; }
+  .carousel-arrow.prev { left: -12px; }
+  .carousel-arrow.next { right: -12px; }
 }
 
 
