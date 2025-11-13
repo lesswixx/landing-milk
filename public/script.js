@@ -92,6 +92,86 @@ if (form) {
   });
 }
 
+// Image modal for carousels
+(function setupImageModal() {
+  const modal = document.getElementById('imageModal');
+  if (!modal) return;
+  const modalImg = modal.querySelector('img');
+  const closeBtn = modal.querySelector('.img-modal__close');
+  const prevBtn = modal.querySelector('.img-modal__prev');
+  const nextBtn = modal.querySelector('.img-modal__next');
+  
+  let allImages = [];
+  let currentIndex = 0;
 
+  // Собираем все изображения из всех каруселей
+  function collectAllImages() {
+    allImages = Array.from(document.querySelectorAll('.carousel-item img')).map(img => ({
+      src: img.src,
+      alt: img.alt || ''
+    }));
+  }
+
+  function open(index) {
+    if (allImages.length === 0) collectAllImages();
+    if (index < 0) index = allImages.length - 1;
+    if (index >= allImages.length) index = 0;
+    currentIndex = index;
+    const img = allImages[currentIndex];
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+  }
+
+  function close() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImg.src = '';
+    document.body.classList.remove('no-scroll');
+  }
+
+  function next() {
+    if (allImages.length > 0) open(currentIndex + 1);
+  }
+
+  function prev() {
+    if (allImages.length > 0) open(currentIndex - 1);
+  }
+
+  document.addEventListener('click', (e) => {
+    const img = e.target.closest('.carousel-item img');
+    if (img) {
+      e.preventDefault();
+      collectAllImages();
+      const index = allImages.findIndex(item => item.src === img.src);
+      open(index >= 0 ? index : 0);
+    }
+    if (e.target === modal) close();
+  });
+
+  closeBtn && closeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    close();
+  });
+  
+  prevBtn && prevBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    prev();
+  });
+  
+  nextBtn && nextBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    next();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+})();
 
 
